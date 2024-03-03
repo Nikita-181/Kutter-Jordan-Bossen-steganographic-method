@@ -128,10 +128,10 @@ namespace Kutter_Jordan_Bossen_steganographic_method
         /// <param name="width"></param>
         /// <param name="sigma"></param>
         /// <returns> Набор List ValueTuple int, int координат. 
-        /// Тесты показали, что использование списка вместо массива ValueTuple int, int [] в два раза быстрее
         /// </returns>
         List<ValueTuple<int, int>> Generator(int count, int height, int width, int sigma)
         {
+            // Использование списка вместо массива в два раза быстрее, при использовании Contains
             List<ValueTuple<int, int>> Pixels = new List<ValueTuple<int, int>>();
             var rand = new Random();
             for (int i = 0; i < count; i++)
@@ -231,7 +231,6 @@ namespace Kutter_Jordan_Bossen_steganographic_method
                 inputBitmap.BeginInit();
                 inputBitmap.UriSource = new Uri(FilePath, UriKind.Absolute);
                 inputBitmap.EndInit();
-
 
                 textBoxOutput.Visibility = Visibility.Visible;
                 imageOutput.Visibility = Visibility.Hidden;

@@ -18,7 +18,7 @@ $$L_{x,y} = 0.29890R_{x,y} + 0.58662G_{x,y} + 0.11448B_{x,y}$$
 The embedding is bitwise: one message bit into one blue brightness value $B_{x,y}$. In this case, the modified blue brightness values $B^*_{x,y}$ are calculated using the formula:
 
 $$
-B^*_{x,y}=
+B_{x,y}^*=
 \begin{cases}
 B_{x,y} + λL_{x,y}, & \quad \text{$m_{i}=1$}\\ 
 B_{x,y} - λL_{x,y}, & \quad \text{$m_{i}=0$}
@@ -50,15 +50,15 @@ Bit extraction is carried out by rule:
 $$
 m_{i}=
 \begin{cases}
-B^*_{x,y} > \tilde B_{x,y}, & \quad \text{$1$}\\ 
-B^*_{x,y} < \tilde B_{x,y}, & \quad \text{$0$}
+B_{x,y}^* > \tilde B_{x,y}, & \quad \text{$1$}\\ 
+B_{x,y}^* < \tilde B_{x,y}, & \quad \text{$0$}
 \end{cases}
 $$
 
 ## Multiple Embedding
 To reduce the probability of extraction errors during the embedding process, each bit of the message is repeated several times (multiple embedding). Since each bit has been repeated *τ* times, this produces *τ* estimates of a single message bit. The secret bit is extracted by averaging the difference between the real and estimated pixel intensity values in the resulting container:
 
-$$ δ = τ^{-1} \sum_{i=1}^τ [B^*_{x,y} - \tilde B_{x,y}] $$ 
+$$ δ = τ^{-1} \sum_{i=1}^τ [B_{x,y}^* - \tilde B_{x,y}] $$ 
 
 Then the extraction of the secret bit is described as follows:
 
